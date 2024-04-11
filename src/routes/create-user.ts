@@ -33,4 +33,8 @@ export async function createUser(app: FastifyInstance) {
       message: 'User created successfully'
     });
   });
+
+  app.get('/users', async (request, reply) => {
+    return request.cookies
+  });
 }
