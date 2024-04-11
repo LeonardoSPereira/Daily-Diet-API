@@ -12,9 +12,17 @@ export async function createMeal(app: FastifyInstance) {
       name: z.string(),
       description: z.string(),
       is_meal_on_diet: z.boolean(),
+      meal_day: z.string(),
+      meal_time: z.string(),
     });
 
-    const { name, description, is_meal_on_diet } = createMealRequestBodySchema.parse(request.body);
+    const {
+      name,
+      description,
+      is_meal_on_diet,
+      meal_day,
+      meal_time,
+    } = createMealRequestBodySchema.parse(request.body);
     const { session_id } = request.cookies;
 
     const meal = await knex('meals').insert({
@@ -23,6 +31,8 @@ export async function createMeal(app: FastifyInstance) {
       name,
       description,
       is_meal_on_diet,
+      meal_day,
+      meal_time,
     }).returning('*');
 
     return reply.status(201).send({
