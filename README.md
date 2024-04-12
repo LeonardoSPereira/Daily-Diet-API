@@ -96,7 +96,7 @@ POST /meals
 {
   "name": "your meal name",
   "description": "your meal description",
-  "is_meal_on_diet": if the meal is on diet or not,
+  "is_meal_on_diet": false,
   "meal_day": "day of the meal",
   "meal_time": "time of the meal"
 }
@@ -134,7 +134,7 @@ PUT /meals/:id
 {
   "name": "your meal name",
   "description": "your meal description",
-  "is_meal_on_diet": if the meal is on diet or not,
+  "is_meal_on_diet": true,
   "meal_day": "day of the meal",
   "meal_time": "time of the meal"
 }
